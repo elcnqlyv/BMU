@@ -30,7 +30,9 @@ int main()
         printf("4. Set a bit\n");
         printf("5. Clear a bit\n");
         printf("6. Toggle a bit\n");
-        printf("7. Exit\n");
+        printf("7. Check a bit\n");
+        printf("8. Exit\n");
+
 
 
 
@@ -110,15 +112,39 @@ int main()
         }
         case 7:
         {
-            printf("Exiting...\n");
+            int bit; 
+            printf("Which bit do you want to check? ");
+            scanf("%d", &bit);
+
+            if (bit < 0 || bit > 31)
+            {
+                printf("Bit must be between 0 and 31. \n");
+                break;
+            }
+            
+            if (value & (1U << bit))
+            {
+                printf("Bit %d is set to 1. \n", bit);
+            }
+            else
+            {
+                printf("Bit %d is set to 0. \n", bit);
+            }
+            
+
             break;
         }
 
+        case 8:
+        {
+            printf("Exiting...\n");
+            break;
+        }
         default:
             printf("Invalid choice.\n");
         }
 
-    } while (choice != 7);
+    } while (choice != 8);
     
     return 0;
 }
