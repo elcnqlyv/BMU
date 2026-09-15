@@ -1,5 +1,22 @@
 #include <stdio.h>
 
+void printBinary(unsigned int value)
+{
+    for (int i = 31; i >= 0; i--)
+    {
+        if (value & (1U << i))
+        {
+            printf("1");
+        }
+        else
+        {
+            printf("0");
+        }
+    }
+    
+    printf("\n");
+}
+
 int main()
 {
     unsigned int value = 0;
@@ -18,13 +35,14 @@ int main()
         switch (choice)
         {
         case 1:
-            /* code */
+            printf("Enter the value you want: ");
+            scanf("%u", &value);
             break;
         case 2:
-            /* code */
+            printf("The value is %u in decimal.", value);
             break;
         case 3:
-            /* code */
+            printBinary(value);
             break;
         case 4:
             printf("Exiting...\n");
@@ -35,5 +53,5 @@ int main()
 
     } while (choice != 4);
     
-
+    return 0;
 }
