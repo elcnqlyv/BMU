@@ -12,6 +12,12 @@ void printBinary(unsigned int value)
         {
             printf("0");
         }
+
+        if (i % 8 == 0 && i != 0)
+        {
+            printf(" ");
+        }
+        
     }
     
     printf("\n");
